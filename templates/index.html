@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de llegadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='truck.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <h1>Gestión de Camiones</h1>
+    <body>
+        <form action="/add_truck" method="post">
+            <!-- Contenedor para los campos -->
+            <div class="form-fields">
+                <label for="truck-number">Matrícula:</label>
+                <input type="text" id="truck-number" name="truck_number">
+                
+                <label for="truck-age">Agencia:</label>
+                <input type="text" id="truck-age" name="agencia">
+                
+                <label for="truck-destiny">Destino:</label>
+                <input type="text" id="truck-destiny" name="destino">
+                
+                <label for="truck-obs">Observación:</label>
+                <input type="text" id="truck-obs" name="observacion">
+            </div>
+            
+            <!-- Contenedor para los botones -->
+            <div class="form-buttons">
+                <button type="submit">Añadir camión</button>
+                <button id="mas" type="button">Más</button>
+                <button id="reset-table" onclick="confirmarReset()">Resetear Tabla</button>
+            </div>
+        </form>
+    
+    <div class="search-container">
+        <div>
+            <label for="search-matricula">Buscar por matrícula:</label>
+            <input type="text" id="search-matricula" oninput="searchTruck()" placeholder="Escribe la matrícula">
+        </div>
+        <div>
+            <label for="search-agencia">Buscar por agencia:</label>
+            <input type="text" id="search-agencia" oninput="searchAgency()" placeholder="Escribe la agencia">
+        </div>
+    </div>
+    <div id="kanban-board">
+        <div class="kanban-column" id="pending" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">
+            <h2>Pendiente</h2>
+            <div class="kanban-items">
+                {% for truck in trucks %}
+                {% include 'editar.html' %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="kanban-column" id="prepared" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">
+            <h2>Preparado</h2>
+            <div class="kanban-items">
+                {% for truck in Preparados %}
+                {% include 'camión.html' %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="kanban-column" id="arrived" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">
+            <h2>Llegado</h2>
+            <div class="kanban-items">
+                {% for truck in Llegados %}
+                {% include 'camión.html' %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="kanban-column" id="gone" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">
+            <h2>Salido</h2>
+            <div class="kanban-items">
+                {% for truck in Salidos %}
+                {% include 'camión.html' %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+
+

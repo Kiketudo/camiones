@@ -1,0 +1,310 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+/* Estilo del formulario */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Alinear elementos en columnas por defecto */
+    gap: 15px; /* Espaciado entre filas del formulario */
+    margin-top: 20px;
+    gap: 15px;
+}
+
+/* Contenedor principal del formulario */
+
+/* Fila de campos de entrada */
+.form-fields {
+    display: flex; /* Colocar los campos y etiquetas en línea */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten si no hay espacio */
+    gap: 15px; /* Espaciado entre los elementos */
+    align-items: center;
+}
+
+/* Etiquetas e inputs */
+.form-fields label {
+    margin-right: 8px; /* Espaciado entre etiqueta y campo */
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+.form-fields input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px; /* Ancho estándar para los inputs */
+    box-sizing: border-box;
+}
+
+/* Botones en una fila aparte */
+.form-buttons {
+    display: flex;
+    justify-content: flex-start; /* Alinear los botones al inicio */
+    gap: 30px; /* Espaciado entre los botones */
+}
+
+form button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2980b9;
+}
+
+/* Estilo del botón "Más" */
+#mas {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#mas:hover {
+    background-color: #e67e22;
+}
+#prepara {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#prepara:hover {
+    background-color: #2980b9;
+}
+#edit {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#edit:hover {
+    background-color: #e67e22;
+}
+#reset-table {
+    background-color: #ce0965;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#reset-table:hover {
+    background-color: #e91999;
+}
+/* Contenedor para los elementos de búsqueda */
+.search-container {
+    display: flex; /* Alinear elementos en fila */
+    gap: 20px; /* Espaciado entre los divs */
+    margin-top: 20px; /* Separación del contenido superior */
+    align-items: center; /* Alinear verticalmente los elementos */
+}
+
+/* Estilos para los inputs dentro de los contenedores */
+.search-container label {
+    font-size: 1rem;
+    margin-right: 8px;
+}
+
+.search-container input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; /* Ancho de los inputs */
+    box-sizing: border-box;
+}
+
+/* Estilos para el tablero Kanban */
+#kanban-board {
+    display: grid; /* Cambiar a Grid para mayor flexibilidad */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas flexibles */
+    gap: 20px; /* Espaciado entre columnas */
+    margin-top: 40px;
+    width: 100%; /* Ocupar todo el ancho */
+    max-width: 100%; /* Eliminar límite de ancho */
+    padding: 10px; /* Espaciado interno del tablero */
+    box-sizing: border-box; /* Incluir padding en el ancho total */
+}
+
+.kanban-column {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 300px; /* Asegura que cada columna tenga una altura mínima */
+    transition: transform 0.2s ease-in-out; /* Animación suave al hacer hover */
+}
+.kanban-column h2 {
+    font-size: 1.5rem;
+    color: #2980b9;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.kanban-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.kanban-item {
+    display: grid; /* Usamos CSS Grid */
+    flex-direction: column; 
+    grid-template-columns: 1fr 2fr 2fr; /* Tres columnas no iguales */
+    grid-template-rows: auto auto; /* Una fila para los datos principales, otra para observación */
+    grid-template-areas:
+        "matricula agencia destino"
+        "observacion observacion observacion"; /* Observación ocupa toda la fila */
+    gap: 10px; /* Espaciado entre las celdas */
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.kanban-item1 {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 15px; /* Espaciado entre los bloques */
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+.kanban-item:hover {
+    transform: scale(1.02);
+}
+
+/* Estilo para los campos individuales */
+.kanban-item div {
+    padding: 5px;
+}
+
+/* Áreas específicas */
+.kanban-item .matricula {
+    grid-area: matricula;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.kanban-item .agencia {
+    grid-area: agencia;
+    color: #16a085;
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+}
+
+.kanban-item .destino {
+    grid-area: destino;
+    color: #2980b9;
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+}
+
+.kanban-item .observacion {
+    grid-area: observacion;
+    text-align: center; /* Centrado horizontal */
+    font-style: italic;
+    color: #7f8c8d;
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+/* Drag and Drop styles */
+.kanban-column {
+    border: 2px dashed #bdc3c7;
+    min-height: 300px;
+}
+
+.kanban-column.dragging-over {
+    background-color: #ecf0f1;
+    border-color: #3498db;
+}
+
+.modal {
+    display: none; /* El modal está oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con opacidad */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Puedes ajustar el tamaño según lo que necesites */
+    max-width: 600px; /* Para evitar que el modal se haga muy grande */
+    border-radius: 8px; /* Bordes redondeados */
+    position: absolute; /* Posición absoluta para aplicar transformaciones */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Centrar modal horizontal y verticalmente */
+}
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+

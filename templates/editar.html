@@ -1,0 +1,35 @@
+<div class="kanban-item1" data-matricula="{{ truck.Matricula }}" data-agencia="{{ truck.Agencia }}">
+        <div class="kanban-item" >
+            <div class="matricula">{{ truck.Matricula }}</div>
+            <div class="agencia">{{ truck.Agencia }}</div>
+            <div class="destino">{{ truck.Destino }}</div>
+            <div class="observacion">Observación: {{ truck.Observación }}</div>
+        </div>
+            
+        <button id="prepara" onclick="marcarPreparado('{{ truck.Id }}')">Preparado</button>
+        <button id= "edit" onclick="abrirModal('{{ truck.Id }}')">Editar</button>
+      
+</div>
+    <div id="modal-{{ truck.Id }}" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('{{ truck.Id }}')">&times;</span>
+            <h2>Editar Camión</h2>
+            <form action="/guardar-cambios" method="POST">
+                <input type="hidden" name="id" value="{{ truck.Id }}">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" name="matricula" value="{{ truck.Matricula }}" id="matricula-{{ truck.Id }}">
+                
+                <label for="agencia">Agencia:</label>
+                <input type="text" name="agencia" value="{{ truck.Agencia }}" id="agencia-{{ truck.Id }}">
+                
+                <label for="destino">Destino:</label>
+                <input type="text" name="destino" value="{{ truck.Destino }}" id="destino-{{ truck.Id }}">
+                
+                <label for="observacion">Observación:</label>
+                <input type="text" name="observacion" value="{{ truck.Observación }}" id="observacion-{{ truck.Id }}">
+                
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+

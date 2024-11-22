@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir camiones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add.css') }}">
+</head>
+<body>
+<form action="/add_trucks" method="post" id="add-trucks-form">
+    <div id="truck-container">
+    </div>
+
+    <div>
+        <label for="paste-data">Pega los datos de los camiones aquí:</label>
+        <textarea id="paste-data" placeholder="Pega los datos de los camiones (cada camión en una línea separada)"></textarea>
+    </div>
+
+    <button type="button" id="add-truck-btn">Añadir otro camión</button>
+    <button type="submit">Añadir camiones</button>
+</form>
+<script src="{{ url_for('static', filename='js/add.js') }}"></script>
+</body>
+</html>
